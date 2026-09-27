@@ -8,7 +8,11 @@ const produits = [
   { id: 3, nom: 'Boucles Perles', prix: 28.99 },
   { id: 4, nom: 'Bague Diamant', prix: 89.99 },
   { id: 5, nom: 'Pendentif Cristal', prix: 55.00 },
-  { id: 6, nom: 'Chaîne Or Rose', prix: 65.99 }
+  { id: 6, nom: 'Chaîne Or Rose', prix: 65.99 },
+  { id: 7, nom: 'Bracelet Or Massif', prix: 125.00 },
+  { id: 8, nom: 'Bracelet Acier Inoxydable', prix: 42.99 },
+  { id: 9, nom: 'Bracelet Cuivre', prix: 38.50 },
+  { id: 10, nom: 'Bracelet Plaqué Or', prix: 58.99 }
 ];
 
 // Synchroniser le panier avec localStorage
