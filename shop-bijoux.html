@@ -136,11 +136,22 @@
         .product-image {
             width: 100%;
             height: 250px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;
+            font-size: 80px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(0,0,0,0.3), inset 0 0 20px rgba(255,255,255,0.5);
         }
 
         .product-info {
@@ -240,7 +251,9 @@
             <h2>Nos Bagues Fantaisie</h2>
             <div class="products">
                 <div class="product-card">
-                    <div class="product-image" style="background: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=250&fit=crop') center/cover;"></div>
+                    <div class="product-image" style="background: linear-gradient(135deg, #f5f7fa 0%, #e0e0e0 50%, #d0d0d0 100%);">
+                        <div style="width: 100px; height: 100px; background: radial-gradient(circle at 30% 30%, #ffffff, #e8e8e8); border-radius: 50%; box-shadow: 0 0 30px rgba(150,150,150,0.6), inset -5px -5px 15px rgba(0,0,0,0.2);"></div>
+                    </div>
                     <div class="product-info">
                         <h3>Bague Diamant</h3>
                         <p>Bague solitaire avec diamant brillant et monture or blanc</p>
@@ -250,7 +263,9 @@
                 </div>
 
                 <div class="product-card">
-                    <div class="product-image" style="background: url('https://images.unsplash.com/photo-1515562141207-6811bcb33e20?w=400&h=250&fit=crop') center/cover;"></div>
+                    <div class="product-image" style="background: linear-gradient(135deg, #f4d4a8 0%, #d4a574 50%, #c4956c 100%);">
+                        <div style="width: 100px; height: 100px; background: radial-gradient(circle at 30% 30%, #ff4444, #cc0000, #660000); border-radius: 50%; box-shadow: 0 0 30px rgba(200,0,0,0.6), inset -5px -5px 15px rgba(0,0,0,0.3);"></div>
+                    </div>
                     <div class="product-info">
                         <h3>Bague Rubis</h3>
                         <p>Bague fantaisie avec rubis naturel et petits diamants</p>
@@ -260,7 +275,9 @@
                 </div>
 
                 <div class="product-card">
-                    <div class="product-image" style="background: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=250&fit=crop') center/cover;"></div>
+                    <div class="product-image" style="background: linear-gradient(135deg, #f5f7fa 0%, #e0e0e0 50%, #d0d0d0 100%);">
+                        <div style="width: 100px; height: 100px; background: radial-gradient(circle at 30% 30%, #00ff88, #00cc66, #008844); border-radius: 50%; box-shadow: 0 0 30px rgba(0,200,100,0.6), inset -5px -5px 15px rgba(0,0,0,0.3);"></div>
+                    </div>
                     <div class="product-info">
                         <h3>Bague Émeraude</h3>
                         <p>Bague élégante avec émeraude verte et entourage de diamants</p>
@@ -270,7 +287,9 @@
                 </div>
 
                 <div class="product-card">
-                    <div class="product-image" style="background: url('https://images.unsplash.com/photo-1515562141207-6811bcb33e20?w=400&h=250&fit=crop') center/cover;"></div>
+                    <div class="product-image" style="background: linear-gradient(135deg, #f5f7fa 0%, #e0e0e0 50%, #d0d0d0 100%);">
+                        <div style="width: 100px; height: 100px; background: radial-gradient(circle at 30% 30%, #0088ff, #0055cc, #003388); border-radius: 50%; box-shadow: 0 0 30px rgba(0,100,200,0.6), inset -5px -5px 15px rgba(0,0,0,0.3);"></div>
+                    </div>
                     <div class="product-info">
                         <h3>Bague Saphir</h3>
                         <p>Bague bleue avec saphir naturel et diamants latéraux</p>
@@ -280,7 +299,9 @@
                 </div>
 
                 <div class="product-card">
-                    <div class="product-image" style="background: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=250&fit=crop') center/cover;"></div>
+                    <div class="product-image" style="background: linear-gradient(135deg, #f4d4a8 0%, #d4a574 50%, #c4956c 100%);">
+                        <div style="width: 100px; height: 100px; background: radial-gradient(circle at 30% 30%, #ffdd44, #ffaa00, #dd8800); border-radius: 50%; box-shadow: 0 0 30px rgba(200,150,0,0.6), inset -5px -5px 15px rgba(0,0,0,0.2);"></div>
+                    </div>
                     <div class="product-info">
                         <h3>Bague Topaze</h3>
                         <p>Bague dorée avec topaze impériale et détails ajourés</p>
@@ -290,7 +311,9 @@
                 </div>
 
                 <div class="product-card">
-                    <div class="product-image" style="background: url('https://images.unsplash.com/photo-1515562141207-6811bcb33e20?w=400&h=250&fit=crop') center/cover;"></div>
+                    <div class="product-image" style="background: linear-gradient(135deg, #f5f7fa 0%, #e0e0e0 50%, #d0d0d0 100%);">
+                        <div style="width: 100px; height: 100px; background: radial-gradient(circle at 30% 30%, #bb66ff, #8833cc, #553388); border-radius: 50%; box-shadow: 0 0 30px rgba(150,50,200,0.6), inset -5px -5px 15px rgba(0,0,0,0.3);"></div>
+                    </div>
                     <div class="product-info">
                         <h3>Bague Améthyste</h3>
                         <p>Bague violette avec améthyste et monture argent 925</p>
