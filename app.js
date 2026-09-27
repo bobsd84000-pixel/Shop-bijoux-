@@ -22,11 +22,13 @@ function sauvegarderPanier() {
 function afficherProduits() {
   const container = document.getElementById('produits-container');
   container.innerHTML = produits.map(p => `
-    <div class="produit">
-      <h3>${p.nom}</h3>
-      <p class="prix">${p.prix}€</p>
-      <button onclick="ajouterAuPanier(${p.id}, '${p.nom}', ${p.prix})">Ajouter</button>
-    </div>
+    <li class="produit" role="listitem">
+      <article aria-label="${p.nom}">
+        <h3>${p.nom}</h3>
+        <p class="prix" aria-label="Prix: ${p.prix} euros">${p.prix}€</p>
+        <button onclick="ajouterAuPanier(${p.id}, '${p.nom}', ${p.prix})" aria-label="Ajouter ${p.nom} au panier">Ajouter</button>
+      </article>
+    </li>
   `).join('');
 }
 
@@ -47,25 +49,27 @@ function afficherPanier() {
   const totalEl = document.getElementById('panier-total');
 
   if (panier.length === 0) {
-    container.innerHTML = '<p class="panier-vide">Votre panier est vide</p>';
+    container.innerHTML = '<p class="panier-vide" role="status" aria-live="polite">Votre panier est vide</p>';
     totalEl.innerHTML = '';
     return;
   }
 
   container.innerHTML = panier.map(item => `
-    <div class="panier-item">
+    <div class="panier-item" role="listitem">
       <div class="panier-item-info">
-        <strong>${item.nom}</strong> - ${item.prix}€ x ${item.quantite}
+        <strong>${item.nom}</strong> - <span aria-label="Prix unitaire: ${item.prix} euros">${item.prix}€</span> x <span aria-label="Quantité: ${item.quantite}">${item.quantite}</span>
       </div>
       <div class="panier-item-actions">
-        <button onclick="diminuerQuantite(${item.id})">-</button>
-        <button onclick="supprimerDuPanier(${item.id})">✕</button>
+        <button onclick="diminuerQuantite(${item.id})" aria-label="Réduire la quantité de ${item.nom}">-</button>
+        <button onclick="supprimerDuPanier(${item.id})" aria-label="Supprimer ${item.nom} du panier">✕</button>
       </div>
     </div>
   `).join('');
 
   const total = panier.reduce((sum, item) => sum + (item.prix * item.quantite), 0);
-  totalEl.innerHTML = `Total: ${total.toFixed(2)}€`;
+  totalEl.innerHTML = `<span aria-label="Total du panier: ${total.toFixed(2)} euros">Total: ${total.toFixed(2)}€</span>`;
+  totalEl.setAttribute('role', 'status');
+  totalEl.setAttribute('aria-live', 'polite');
 }
 
 // Diminuer la quantité
@@ -89,7 +93,9 @@ function supprimerDuPanier(id) {
 // Mettre à jour le compteur
 function mettreAJourCompteur() {
   const count = panier.reduce((sum, item) => sum + item.quantite, 0);
-  document.getElementById('panier-count').textContent = count;
+  const countEl = document.getElementById('panier-count');
+  countEl.textContent = count;
+  countEl.setAttribute('aria-label', `${count} article${count > 1 ? 's' : ''} dans le panier`);
 }
 
 // Initialisation au chargement
