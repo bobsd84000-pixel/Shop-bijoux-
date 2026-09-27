@@ -319,5 +319,44 @@
         <p>Email: contact@shopbijoux.com | Tél: +33 1 23 45 67 89</p>
         <p>Suivez-nous sur les réseaux sociaux</p>
     </footer>
+
+    <button id="codeToggleBtn" onclick="toggleCodeView()" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: #333; color: white; border: none; padding: 12px 20px; border-radius: 50px; cursor: pointer; font-size: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+        &lt;/&gt; Voir le code
+    </button>
+
+    <div id="codeOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; padding: 20px; box-sizing: border-box;">
+        <div style="max-width: 900px; margin: 0 auto; background: #1e1e1e; border-radius: 10px; height: calc(100% - 40px); display: flex; flex-direction: column; overflow: hidden;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #2d2d2d; border-bottom: 1px solid #444;">
+                <span style="color: white; font-weight: bold;">shop-bijoux.html</span>
+                <div>
+                    <button onclick="copyCode()" id="copyBtn" style="background: #667eea; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-right: 10px;">Copier</button>
+                    <button onclick="toggleCodeView()" style="background: #555; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer;">Fermer</button>
+                </div>
+            </div>
+            <textarea id="codeContent" readonly style="flex: 1; background: #1e1e1e; color: #d4d4d4; border: none; padding: 20px; font-family: 'Courier New', monospace; font-size: 12px; resize: none; outline: none; overflow: auto;"></textarea>
+        </div>
+    </div>
+
+    <script>
+        function toggleCodeView() {
+            const overlay = document.getElementById('codeOverlay');
+            const isHidden = overlay.style.display === 'none';
+            overlay.style.display = isHidden ? 'block' : 'none';
+            if (isHidden) {
+                document.getElementById('codeContent').value = document.documentElement.outerHTML;
+            }
+        }
+
+        function copyCode() {
+            const textarea = document.getElementById('codeContent');
+            textarea.select();
+            navigator.clipboard.writeText(textarea.value).then(() => {
+                const btn = document.getElementById('copyBtn');
+                const original = btn.textContent;
+                btn.textContent = 'Copié !';
+                setTimeout(() => { btn.textContent = original; }, 1500);
+            });
+        }
+    </script>
 </body>
 </html>
