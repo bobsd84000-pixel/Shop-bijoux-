@@ -1,12 +1,18 @@
 {
   "name": "shop-bijoux",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Boutique de bijoux avec chatbot conseiller IA",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "@google/generative-ai": "^0.3.0"
+  }
 }
+
